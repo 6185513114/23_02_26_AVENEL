@@ -22,6 +22,7 @@ pytestmark = pytest.mark.skipif(os.getenv('RUN_SELENIUM') != '1', reason='Seleni
 
 
 def test_home_page_loads_title():
+    # tester que la page d'accueil se charge et contient bien le formulaire de connexion
     driver = chrome_driver_headless()
     try:
         driver.get('http://127.0.0.1:5000/')
@@ -32,6 +33,7 @@ def test_home_page_loads_title():
 
 
 def test_login_as_admin_and_open_menu():
+    # tester que l'on peut se connecter avec les identifiants admin et accéder au menu
     driver = chrome_driver_headless()
     try:
         driver.get('http://127.0.0.1:5000/')
@@ -45,6 +47,7 @@ def test_login_as_admin_and_open_menu():
 
 
 def test_forum_post_scenario():
+    # tester que l'on peut se connecter, poster un message sur le forum et que ce message est affiché
     driver = chrome_driver_headless()
     try:
         driver.get('http://127.0.0.1:5000/')
@@ -67,6 +70,7 @@ def test_forum_post_scenario():
 
 
 def test_register_then_create_wiki():
+    # tester que l'on peut s'enregistrer, se connecter, créer un article wiki et que cet article est affiché
     driver = chrome_driver_headless()
     try:
         driver.get('http://127.0.0.1:5000/register')
@@ -94,6 +98,7 @@ def test_register_then_create_wiki():
 
 
 def test_admin_create_wiki_then_display():
+    # tester que l'on peut se connecter en admin, créer un article wiki et que cet article est affiché
     driver = chrome_driver_headless()
     try:
         driver.get('http://127.0.0.1:5000/')
