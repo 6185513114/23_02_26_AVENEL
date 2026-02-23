@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="max-width: 800px; margin: auto;">
+    <h2 class="mt-4">Forum / Chat</h2>
+
+    <!-- Zone des messages -->
+    <div id="chat-box" style="
+        border: 1px solid #ccc; 
+        border-radius: 10px; 
+        padding: 15px; 
+        height: 400px; 
+        overflow-y: auto;
+        background-color: #f9f9f9;">
+        
+        {% for post in posts %}
+            {% if post.auteur == nom_utilisateur %}
+                <!-- Message de l'utilisateur courant -->
+                <div style="text-align: right; margin: 10px 0;">
+                    <div style="
+                        display: inline-block; 
+                        background-color: #007bff; 
+                        color: white; 
+                        padding: 10px 15px; 
+                        border-radius: 15px; 
+                        max-width: 70%; 
+                        word-wrap: break-word;">
+                        <p style="margin: 0;">{{ post.contenu }}</p>
+                        <small style="font-size: 0.8em;">
+                            {{ post.date.strftime("%d/%m/%Y %H:%M") if post.date.__class__.__name__ != 'str' else post.date }}
+                        </small>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Message des autres -->
+                <div style="text-align: left; margin: 10px 0;">
+                    <div style="
+                        display: inline-block; 
+                        background-color: #e9ecef; 
+                        padding: 10px 15px; 
+                        border-radius: 15px; 
+                        max-width: 70%; 
+                        word-wrap: break-word;">
+                        <strong>{{ post.auteur }}</strong><br>
+                        <p style="margin: 0;">{{ post.contenu }}</p>
+                        <small style="font-size: 0.8em;">
+                            {{ post.date.strftime("%d/%m/%Y %H:%M") if post.date.__class__.__name__ != 'str' else post.date }}
+                        </small>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Formulaire pour envoyer un nouveau message -->
+    <form method="POST" class="mt-3" style="display: flex; gap: 10px;" onsubmit="setTimeout(() => location.reload(), 300);">
+        <input type="text" name="contenu" class="form-control" placeholder="Écrire un message..." required>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+
+    <script>
+    async function chargerMessages() {
+        const response = await fetch("{{ url_for('forum_messages') }}");
+        const messages = await response.json();
+
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML = "";
+
+        messages.forEach(post => {
+            let div = document.createElement("div");
+            if (post.auteur === "{{ nom_utilisateur }}") {
+                div.innerHTML = `
+                    <div style="text-align: right; margin: 10px 0;">
+                        <div style="
+                            display: inline-block; 
+                            background-color: #007bff; 
+                            color: white; 
+                            padding: 10px 15px; 
+                            border-radius: 15px; 
+                            max-width: 70%; 
+                            word-wrap: break-word;">
+                            <p style="margin: 0;">${post.contenu}</p>
+                            <small style="font-size: 0.8em;">${post.date}</small>
+                        </div>
+                    </div>`;
+            } else {
+                div.innerHTML = `
+                    <div style="text-align: left; margin: 10px 0;">
+                        <div style="
+                            display: inline-block; 
+                            background-color: #e9ecef; 
+                            padding: 10px 15px; 
+                            border-radius: 15px; 
+                            max-width: 70%; 
+                            word-wrap: break-word;">
+                            <strong>${post.auteur}</strong><br>
+                            <p style="margin: 0;">${post.contenu}</p>
+                            <small style="font-size: 0.8em;">${post.date}</small>
+                        </div>
+                    </div>`;
+            }
+            chatBox.appendChild(div);
+        });
+
+    // Scroll tout en bas
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Recharger les messages toutes les 3s
+setInterval(chargerMessages, 3000);
+
+// Charger au premier affichage
+chargerMessages();
+</script>
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,229 @@
+body {
+    background-color:#EBF7E3;
+    margin: 0;
+}
+
+#navbar {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    font-size: 1.1em;
+    color: #1B3409;
+}
+
+#navbar-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.navbar-item {
+    margin: 0 10px;
+}
+
+.navbar-item.login-logout {
+    margin-left: auto;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    display: block;
+    color: #1B3409;
+    font-weight: bold;
+}
+
+.navbar-item a:hover {
+    color: #EBF7E3;
+}
+#container {
+    margin: 20px 50px;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.button {
+    font-weight: bolder;
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: black;
+    background-color: #9BD770
+    ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+input[type=submit] {
+    font-weight: bolder;
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 30px;
+    font-size: 13px;
+    color: black;
+    background-color: #007bff
+    ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input[type=submit]:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles généraux */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 5px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Style spécifique pour le bouton "S'inscrire" */
+.button-small {
+    padding: 10px 20px;
+    font-size: 12px;
+}
+
+/* Style spécifique pour le div du bouton "S'inscrire" */
+.container-small {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    
+}
+
+.chat-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+.chat-message {
+    background: #e6f3ff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.timestamp {
+    font-size: 0.8em;
+    color: #666;
+}

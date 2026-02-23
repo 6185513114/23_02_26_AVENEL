@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ article.titre }}</h1>
+    <p>{{ article.contenu }}</p>
+    <p><i>Écrit par {{ article.auteur }}, le {{ article.date }}</i></p>
+
+    <p><a href="{{ url_for('wiki') }}">← Retour au wiki</a></p>
+</div>
+{% endblock %}

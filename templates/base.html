@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav id="navbar">
+    {% if show_nav_links %}
+    <ul id="navbar-items">
+        <li class="navbar-item">
+            <a href="{{ url_for('menu') }}">Accueil</a>
+        </li>
+        <li class="navbar-item">
+            <a href="{{ url_for('wiki') }}">Wiki</a>
+        </li>    
+        <li class="navbar-item">
+            <a href="{{ url_for('forum') }}">Forum</a>
+        </li>   
+        <li class="navbar-item login-logout">
+            {% if session.get('nom_utilisateur') %}
+                <a href="{{ url_for('logout') }}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Se connecter</a>
+            {% endif %}
+        </li>
+    </ul>
+    {% endif %}
+</nav>
+
+    
+    <div id="container">
+        {% block content %}{% endblock %}
+    </div>
+    
+</body>
+</html>

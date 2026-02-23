@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Wiki</h1>
+    <p>Bienvenue {{ nom_utilisateur }} !</p>
+
+    <h2>Articles disponibles</h2>
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{ url_for('article', id=article.id) }}">
+                    {{ article.titre }}
+                </a>
+                <small>(par {{ article.auteur }}, le {{ article.date }})</small>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Ajouter un article</h2>
+    <form method="POST">
+        <label for="titre">Titre :</label>
+        <input type="text" id="titre" name="titre" required><br><br>
+
+        <label for="contenu">Contenu :</label><br>
+        <textarea id="contenu" name="contenu" rows="5" cols="50" required></textarea><br><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+{% endblock %}

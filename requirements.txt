@@ -1,0 +1,6 @@
+Flask
+flask-bcrypt
+psycopg2-binary
+pytest
+selenium
+webdriver-manager
